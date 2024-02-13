@@ -1,0 +1,1503 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>atividade02 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">atividade02 documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >Matriz2</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/components/matriz/matriz.component.ts</code>
+        </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#matrix2" >matrix2</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#calcularDeterminante" >calcularDeterminante</a>
+                            </li>
+                            <li>
+                                <a href="#escalar" >escalar</a>
+                            </li>
+                            <li>
+                                <a href="#inverter" >inverter</a>
+                            </li>
+                            <li>
+                                <a href="#multiplicarEscalar" >multiplicarEscalar</a>
+                            </li>
+                            <li>
+                                <a href="#multiplicarMatrizes" >multiplicarMatrizes</a>
+                            </li>
+                            <li>
+                                <a href="#somarEscalar" >somarEscalar</a>
+                            </li>
+                            <li>
+                                <a href="#somarMatrizes" >somarMatrizes</a>
+                            </li>
+                            <li>
+                                <a href="#subtrairMatrizes" >subtrairMatrizes</a>
+                            </li>
+                            <li>
+                                <a href="#transpor" >transpor</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(n11?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, n12?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, n21?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, n22?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="354" class="link-to-prism">src/app/components/matriz/matriz.component.ts:354</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>n11</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>n12</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>n21</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>n22</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matrix2"></a>
+                    <span class="name">
+                        <span ><b>matrix2</b></span>
+                        <a href="#matrix2"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Array&lt;Array&lt;number&gt;&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="354" class="link-to-prism">src/app/components/matriz/matriz.component.ts:354</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcularDeterminante"></a>
+                    <span class="name">
+                        <span ><b>calcularDeterminante</b></span>
+                        <a href="#calcularDeterminante"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calcularDeterminante()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="400"
+                                    class="link-to-prism">src/app/components/matriz/matriz.component.ts:400</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="escalar"></a>
+                    <span class="name">
+                        <span ><b>escalar</b></span>
+                        <a href="#escalar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>escalar(m1: <a href="../classes/Matriz2.html" target="_self">Matriz2</a>, sx: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, sy: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="432"
+                                    class="link-to-prism">src/app/components/matriz/matriz.component.ts:432</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>m1</td>
+                                            <td>
+                                                            <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>sx</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>sy</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inverter"></a>
+                    <span class="name">
+                        <span ><b>inverter</b></span>
+                        <a href="#inverter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>inverter(m1: <a href="../classes/Matriz2.html" target="_self">Matriz2</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="404"
+                                    class="link-to-prism">src/app/components/matriz/matriz.component.ts:404</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>m1</td>
+                                            <td>
+                                                            <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="multiplicarEscalar"></a>
+                    <span class="name">
+                        <span ><b>multiplicarEscalar</b></span>
+                        <a href="#multiplicarEscalar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>multiplicarEscalar(m1: <a href="../classes/Matriz2.html" target="_self">Matriz2</a>, escalar: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="423"
+                                    class="link-to-prism">src/app/components/matriz/matriz.component.ts:423</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>m1</td>
+                                            <td>
+                                                            <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>escalar</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="multiplicarMatrizes"></a>
+                    <span class="name">
+                        <span ><b>multiplicarMatrizes</b></span>
+                        <a href="#multiplicarMatrizes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>multiplicarMatrizes(m1: <a href="../classes/Matriz2.html" target="_self">Matriz2</a>, m2: <a href="../classes/Matriz2.html" target="_self">Matriz2</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="382"
+                                    class="link-to-prism">src/app/components/matriz/matriz.component.ts:382</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>m1</td>
+                                            <td>
+                                                            <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>m2</td>
+                                            <td>
+                                                            <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="somarEscalar"></a>
+                    <span class="name">
+                        <span ><b>somarEscalar</b></span>
+                        <a href="#somarEscalar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>somarEscalar(m: <a href="../classes/Matriz2.html" target="_self">Matriz2</a>, escalar: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="391"
+                                    class="link-to-prism">src/app/components/matriz/matriz.component.ts:391</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>m</td>
+                                            <td>
+                                                            <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>escalar</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="somarMatrizes"></a>
+                    <span class="name">
+                        <span ><b>somarMatrizes</b></span>
+                        <a href="#somarMatrizes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>somarMatrizes(m1: <a href="../classes/Matriz2.html" target="_self">Matriz2</a>, m2: <a href="../classes/Matriz2.html" target="_self">Matriz2</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="364"
+                                    class="link-to-prism">src/app/components/matriz/matriz.component.ts:364</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>m1</td>
+                                            <td>
+                                                            <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>m2</td>
+                                            <td>
+                                                            <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subtrairMatrizes"></a>
+                    <span class="name">
+                        <span ><b>subtrairMatrizes</b></span>
+                        <a href="#subtrairMatrizes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>subtrairMatrizes(m1: <a href="../classes/Matriz2.html" target="_self">Matriz2</a>, m2: <a href="../classes/Matriz2.html" target="_self">Matriz2</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="373"
+                                    class="link-to-prism">src/app/components/matriz/matriz.component.ts:373</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>m1</td>
+                                            <td>
+                                                            <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>m2</td>
+                                            <td>
+                                                            <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transpor"></a>
+                    <span class="name">
+                        <span ><b>transpor</b></span>
+                        <a href="#transpor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>transpor(m1: <a href="../classes/Matriz2.html" target="_self">Matriz2</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="414"
+                                    class="link-to-prism">src/app/components/matriz/matriz.component.ts:414</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>m1</td>
+                                            <td>
+                                                            <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Matriz2.html" target="_self" >Matriz2</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { Matrix3, Matrix4, Vector2, Vector3, Vector4 } from &#x27;three&#x27;;
+
+@Component({
+  selector: &#x27;app-matriz&#x27;,
+  templateUrl: &#x27;./matriz.component.html&#x27;,
+  styleUrl: &#x27;./matriz.component.css&#x27;
+})
+export class MatrizComponent {
+
+  /**
+   * Cria um Vec2 com as coordenadas informadas
+   * @returns {Vector2} Novo Vec2
+   */
+  criarVector2(x: number, y: number): Vector2 {
+    return new Vector2(x, y);
+  }
+
+  /**
+   * Soma dois vetores Vec2
+   * @returns {Vector2} Novo Vec2 com o resultado da operação
+   */
+  somarVetoresVec2(v1: Vector2, v2: Vector2): Vector2 {
+    return new Vector2().addVectors(v1, v2);
+  }
+
+  /**
+   * Soma um vetor Vec2 com um escalar
+   * @returns {Vector2} Novo Vec2 com o resultado da operação
+   */
+  somarEscalarVec2(v: Vector2, n: number): Vector2 {
+    return v.clone().addScalar(n);
+  }
+
+  /**
+   * Multiplica um vetor Vec2 com um escalar
+   * @returns {Vector2} Novo Vec2 com o resultado da operação
+   */
+  multiplicarEscalarVec2(v: Vector2, n: number): Vector2 {
+    return v.clone().multiplyScalar(n);
+  }
+
+  /**
+   * Calcula o produto escalar de dois vetores Vec2
+   * @returns {number} Valor do produto escalar
+   */
+  calcularProdutoEscalarVec2(v1: Vector2, v2: Vector2): number {
+    return v1.dot(v2);
+  }
+
+  /**
+   * Calcula o produto vetorial de dois vetores Vec2
+   * @returns {number} Valor da multiplicação
+   */
+  calcularProdutoVetorialVec2(v1: Vector2, v2:Vector2): number {
+    return v1.cross(v2);
+  }
+
+  /**
+   * Cria um Vec3 com as coordenadas informadas
+   */
+  criarVector3(x: number, y: number, z: number): Vector3 {
+    return new Vector3(x, y, z);
+  }
+
+  /**
+   * Soma dois vetores Vec3
+   * @returns {Vector3} Novo Vec3 com o resultado da operação
+   */
+  somarVetoresVec3(v1: Vector3, v2: Vector3): Vector3 {
+    return new Vector3().addVectors(v1, v2);
+  }
+
+  /**
+   * Soma um vetor Vec3 com um escalar
+   * @returns {Vector3} Novo Vec3 com o resultado da operação
+   */
+  somarEscalarVec3(v: Vector3, n: number): Vector3 {
+    return v.clone().addScalar(n);
+  }
+
+  /**
+   * Multiplica um vetor Vec3 com um escalar
+   * @returns {Vector3} Novo Vec3 com o resultado da operação
+   */
+  multiplicarEscalarVec3(v: Vector3, n: number): Vector3 {
+    return v.clone().multiplyScalar(n);
+  }
+
+  /**
+   * Calcula o produto escalar de dois vetores Vec3
+   * @returns {number} Valor do produto escalar
+   */
+  calcularProdutoEscalarVec3(v1: Vector3, v2: Vector3): number {
+    return v1.dot(v2);
+  }
+
+  /**
+   * Calcula o produto vetorial de dois vetores Vec3
+   * @returns {Vector3} Vec3 com o resultado da multiplicação
+   */
+  calcularProdutoVetorialVec3(v1: Vector3, v2:Vector3): Vector3 {
+    return new Vector3().crossVectors(v1, v2);
+  }
+
+  /**
+   * Cria um Vec4 com as coordenadas informadas
+   */
+  criarVector4(x: number, y: number, z: number, w: number): Vector4 {
+    return new Vector4(x, y, z, w);
+  }
+
+  /**
+   * Soma dois vetores 4
+   * @returns {Vector4} Novo Vec4 com o resultado da operação
+   */
+  somarVetoresVec4(v1: Vector4, v2: Vector4): Vector4 {
+    return new Vector4().addVectors(v1, v2);
+  }
+
+  /**
+   * Soma um vetor Vec4 com um escalar
+   * @returns {Vector4} Novo Vec4 com o resultado da operação
+   */
+  somarEscalarVec4(v: Vector4, n: number): Vector4 {
+    return v.clone().addScalar(n);
+  }
+
+  /**
+   * Multiplica um vetor Vec4 com um escalar
+   * @returns {Vector4} Novo Vec4 com o resultado da operação
+   */
+  multiplicarEscalarVec4(v: Vector4, n: number): Vector4 {
+    return v.clone().multiplyScalar(n);
+  }
+
+  /**
+   * Calcula o produto escalar de dois vetores Vec4
+   * @returns {number} Valor do produto escalar
+   */
+  calcularProdutoEscalarVec4(v1: Vector4, v2: Vector4): number {
+    return v1.dot(v2);
+  }
+
+  /**
+   * Cria uma matriz identidade 2x2
+   * @returns {Matriz2} Nova matriz identidade Mat2
+   */
+  criarMatrizIdentidade2(): Matriz2 {
+    return new Matriz2();
+  }
+
+  /**
+   * Cria uma matriz 2x2 com os valores informados
+   * @returns {Matriz2} Nova matriz Mat2
+   */
+  criarMatriz2(n11: number, n12: number,
+               n21: number, n22: number): Matriz2 {
+    return new Matriz2(n11, n12, n21, n22);
+  }
+
+  /**
+   * Soma duas matrizes Mat2
+   * @returns {Matriz2} Nova matriz Mat2 com o resultado da operação
+   */
+  somarMatrizesMat2(m1: Matriz2, m2: Matriz2): Matriz2 {
+    return new Matriz2().somarMatrizes(m1, m2);
+  }
+
+  /**
+   * Subtrai duas matrizes Mat2
+   * @returns {Matriz2} Nova matriz Mat2 com o resultado da operação
+   */
+  subtrairMatrizesMat2(m1: Matriz2, m2: Matriz2): Matriz2 {
+    return new Matriz2().subtrairMatrizes(m1, m2);
+  }
+
+  /**
+   * Multiplica duas matrizes Mat2
+   * @returns {Matriz2} Nova matriz Mat2 com o resultado da operação
+   */
+  multiplicarMatrizesMat2(m1: Matriz2, m2: Matriz2): Matriz2 {
+    return new Matriz2().multiplicarMatrizes(m1, m2);
+  }
+
+  /**
+   * Multiplica matriz Mat2 por escalar
+   * @returns {Matriz2} Nova matriz Mat2 com o resultado da operação
+   */
+  multiplicarPorEscalarMat2(m1: Matriz2, escalar: number): Matriz2 {
+    return new Matriz2().multiplicarEscalar(m1, escalar);
+  }
+
+  /**
+   * Soma um escalar a uma matriz Mat2
+   * @returns {Matriz2} Nova matriz Mat2 com o resultado da operação
+   */
+  somarEscalarMat2(m: Matriz2, escalar: number): Matriz2 {
+    return new Matriz2().somarEscalar(m, escalar);
+  }
+
+  /**
+   * Calcula o determinante de uma matriz Mat2
+   * @returns {number} Resultado da operação
+   */
+  calcularDeterminanteMat2(m: Matriz2): number {
+    return m.calcularDeterminante();
+  }
+
+  /**
+   * Inverte uma matriz Mat2
+   * @returns {Matriz2} Nova matriz Mat2 com o resultado da operação
+   */
+  inverterMat2(m: Matriz2): Matriz2 {
+    return new Matriz2().inverter(m);
+  }
+
+  /**
+   * Transpõe uma matriz Mat2
+   * @returns {Matriz2} Nova matriz Mat2 com o resultado da operação
+   */
+  transporMat2(m: Matriz2): Matriz2 {
+    return new Matriz2().transpor(m);
+  }
+
+  /**
+   * Escala x e y de uma matriz Mat2 separadamente
+   * @returns {Matriz2} Nova matriz Mat2 com o resultado da operação
+   */
+  escalarMat2(m: Matriz2, sx: number, sy: number): Matriz2 {
+    return new Matriz2().escalar(m, sx, sy);
+  }
+
+  /**
+   * Cria uma matriz identidade 3x3
+   */
+  criarMatrizIdentidade3(): THREE.Matrix3 {
+    return new Matrix3();
+  }
+
+  /**
+   * Cria uma matriz 3x3 com os valores informados
+   */
+  criarMatriz3(n11: number, n12: number, n13: number,
+               n21: number, n22: number, n23: number,
+               n31: number, n32: number, n33: number): THREE.Matrix3 {
+    return new Matrix3(n11, n12, n13,
+                      n21, n22, n23,
+                      n31, n32, n33);
+  }
+
+  /**
+   * Multiplica duas matrizes Mat3
+   * @returns {Matrix3} Nova matriz Mat3 com o resultado da operação
+   */
+  multiplicarMatrizesMat3(m1: Matrix3, m2: Matrix3): Matrix3 {
+    return new Matrix3().multiplyMatrices(m1, m2);
+  }
+
+  /**
+   * Calcula o determinante de uma matriz Mat3
+   * @returns {number} Resultado da operação
+   */
+  calcularDeterminanteMat3(m: Matrix3): number {
+    return m.determinant();
+  }
+
+  /**
+   * Inverte uma matriz Mat3
+   * @returns {Matrix3} Nova matriz Mat3 com o resultado da operação
+   */
+  inverterMat3(m: Matrix3): Matrix3 {
+    return m.clone().invert();
+  }
+
+  /**
+   * Transpõe uma matriz Mat3
+   * @returns {Matrix3} Nova matriz Mat3 com o resultado da operação
+   */
+  tranporMat3(m: Matrix3): Matrix3 {
+    return m.clone().transpose();
+  }
+
+  /**
+   * Escala uma matriz Mat3
+   * @returns {Matrix3} Nova matriz Mat3 com o resultado da operação
+   */
+  escalarMat3(m: Matrix3, sx: number, sy: number): Matrix3 {
+    return m.clone().scale(sx, sy);
+  }
+
+  /**
+   * Cria uma matriz identidade 4x4
+   */
+  criarMatrizIdentidade4(): Matrix4 {
+    return new Matrix4();
+  }
+
+  /**
+   * Cria uma matriz 4x4 com os valores informados
+   */
+  criarMatriz4(n11: number, n12: number, n13: number, n14: number,
+               n21: number, n22: number, n23: number, n24: number,
+               n31: number, n32: number, n33: number, n34: number,
+               n41: number, n42: number, n43: number, n44: number): Matrix4 {
+    return new Matrix4(n11, n12, n13, n14,
+                      n21, n22, n23, n24,
+                      n31, n32, n33, n34,
+                      n41, n42, n43, n44);
+  }
+
+  /**
+   * Multiplica duas matrizes Mat4
+   * @returns {Matrix4} Nova matriz Mat4 com o resultado da operação
+   */
+  multiplicarMatrizesMat4(m1: Matrix4, m2: Matrix4): Matrix4 {
+    return new Matrix4().multiplyMatrices(m1, m2);
+  }
+
+  /**
+   * Calcula o determinante de uma matriz Mat4
+   * @returns {number} Resultado da operação
+   */
+  calcularDeterminanteMat4(m: Matrix4): number {
+    return m.determinant();
+  }
+
+  /**
+   * Inverte uma matriz Mat4
+   * @returns {Matrix4} Nova matriz Mat4 com o resultado da operação
+   */
+  inverterMat4(m: Matrix4): Matrix4 {
+    return m.clone().invert();
+  }
+
+  /**
+   * Transpõe uma matriz Mat4
+   * @returns {Matrix4} Nova matriz Mat4 com o resultado da operação
+   */
+  tranporMat4(m: Matrix4): Matrix4 {
+    return m.clone().transpose();
+  }
+
+  /**
+   * Escala uma matriz Mat4
+   * @returns {Matrix4} Nova matriz Mat4 com o resultado da operação
+   */
+  escalarMat4(m: Matrix4, sx: number, sy: number, sz: number): Matrix4 {
+    return m.clone().scale(new Vector3(sx, sy, sz));
+  }
+}
+
+class Matriz2 {
+  matrix2: Array&lt;Array&lt;number&gt;&gt;;
+  constructor(n11?: number, n12?: number,
+              n21?: number, n22?: number) {
+    this.matrix2 &#x3D; new Array&lt;Array&lt;number&gt;&gt;;
+    this.matrix2[0][0] &#x3D; n11 ?? 1;
+    this.matrix2[0][1] &#x3D; n12 ?? 0;
+    this.matrix2[1][0] &#x3D; n21 ?? 0;
+    this.matrix2[1][1] &#x3D; n22 ?? 1;
+  }
+
+  somarMatrizes(m1: Matriz2, m2: Matriz2): Matriz2 {
+    let m3 &#x3D; new Matriz2();
+    m3.matrix2[0][0] &#x3D; m1.matrix2[0][0] + m2.matrix2[0][0];
+    m3.matrix2[0][1] &#x3D; m1.matrix2[0][1] + m2.matrix2[0][1];
+    m3.matrix2[1][0] &#x3D; m1.matrix2[1][0] + m2.matrix2[1][0];
+    m3.matrix2[1][1] &#x3D; m1.matrix2[1][1] + m2.matrix2[1][1];
+    return m3;
+  }
+
+  subtrairMatrizes(m1: Matriz2, m2: Matriz2): Matriz2 {
+    let m3 &#x3D; new Matriz2();
+    m3.matrix2[0][0] &#x3D; m1.matrix2[0][0] - m2.matrix2[0][0];
+    m3.matrix2[0][1] &#x3D; m1.matrix2[0][1] - m2.matrix2[0][1];
+    m3.matrix2[1][0] &#x3D; m1.matrix2[1][0] - m2.matrix2[1][0];
+    m3.matrix2[1][1] &#x3D; m1.matrix2[1][1] - m2.matrix2[1][1];
+    return m3;
+  }
+
+  multiplicarMatrizes(m1: Matriz2, m2: Matriz2): Matriz2 {
+    let m3 &#x3D; new Matriz2();
+    m3.matrix2[0][0] &#x3D; m1.matrix2[0][0] * m2.matrix2[0][0];
+    m3.matrix2[0][1] &#x3D; m1.matrix2[0][1] * m2.matrix2[0][1];
+    m3.matrix2[1][0] &#x3D; m1.matrix2[1][0] * m2.matrix2[1][0];
+    m3.matrix2[1][1] &#x3D; m1.matrix2[1][1] * m2.matrix2[1][1];
+    return m3;
+  }
+
+  somarEscalar(m: Matriz2, escalar: number): Matriz2 {
+    let m3 &#x3D; new Matriz2();
+    m3.matrix2[0][0] &#x3D; m.matrix2[0][0] + escalar;
+    m3.matrix2[0][1] &#x3D; m.matrix2[0][1] + escalar;
+    m3.matrix2[1][0] &#x3D; m.matrix2[1][0] + escalar;
+    m3.matrix2[1][1] &#x3D; m.matrix2[1][1] + escalar;
+    return m3;
+  }
+
+  calcularDeterminante(): number {
+    return (this.matrix2[0][0] * this.matrix2[1][1]) - (this.matrix2[0][1] * this.matrix2[1][0]);
+  }
+
+  inverter(m1: Matriz2): Matriz2 {
+    let m &#x3D; new Matriz2();
+    let det &#x3D; m.calcularDeterminante();
+    m.matrix2[0][0] &#x3D; m1.matrix2[1][1]*(1/det);
+    m.matrix2[0][1] &#x3D; -(m1.matrix2[0][1]*(1/det));
+    m.matrix2[1][0] &#x3D; -(m1.matrix2[1][0]*(1/det));
+    m.matrix2[1][1] &#x3D; m1.matrix2[0][0]*(1/det);
+    return m;
+  }
+
+  transpor(m1: Matriz2): Matriz2 {
+    let m &#x3D; new Matriz2();
+    m.matrix2[0][0] &#x3D; m1.matrix2[0][0];
+    m.matrix2[0][1] &#x3D; m1.matrix2[1][0];
+    m.matrix2[1][0] &#x3D; m1.matrix2[0][1];
+    m.matrix2[1][1] &#x3D; m1.matrix2[1][1];
+    return m;
+  }
+
+  multiplicarEscalar(m1: Matriz2, escalar: number): Matriz2 {
+    let m &#x3D; new Matriz2();
+    m.matrix2[0][0] &#x3D; m1.matrix2[0][0] * escalar;
+    m.matrix2[0][1] &#x3D; m1.matrix2[1][0] * escalar;
+    m.matrix2[1][0] &#x3D; m1.matrix2[0][1] * escalar;
+    m.matrix2[1][1] &#x3D; m1.matrix2[1][1] * escalar;
+    return m;
+  }
+
+  escalar(m1: Matriz2, sx: number, sy: number): Matriz2 {
+    let m &#x3D; new Matriz2();
+    m.matrix2[0][0] &#x3D; m1.matrix2[0][0] * sx;
+    m.matrix2[0][1] &#x3D; m1.matrix2[1][0] * sy;
+    m.matrix2[1][0] &#x3D; m1.matrix2[0][1] * sx;
+    m.matrix2[1][1] &#x3D; m1.matrix2[1][1] * sy;
+    return m;
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'Matriz2.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
